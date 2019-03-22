@@ -1,0 +1,16 @@
+<mat-card class='primary'>
+  <mat-card-header class='accent'>
+    <form class='flexForm'>
+      <mat-form-field class='formSize'>
+        <mat-label>Transaction ID</mat-label>
+        <mat-select [(ngModel)]="selectedId" name="transaction" placeholder='Transaction ID'>
+          <mat-option *ngFor='let t of transactions' [value]="t.id">{{t.id}}</mat-option>
+        </mat-select>>
+      </mat-form-field>
+      <mat-form-field class='formSize'>
+        <input matInput color='accent' placeholder='Confidence Level' [(ngModel)]='confidence' name='confidence' matInputAutosize />
+      </mat-form-field>
+      <button mat-raised-button (click)='search()' color='primary'>Search</button>
+    </form>
+  </mat-card-header>
+</mat-card>

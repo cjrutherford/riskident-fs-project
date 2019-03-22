@@ -1,0 +1,29 @@
+{
+  "name": "riskident-fs-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "client-build": "ng build --prod --prefix ri-client",
+    "watch-ts": "tsc -w",
+    "watch-node": "nodemon dist/server.js",
+    "watch-debug": "nodemon --inspect dist/server.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \" yarn run watch-ts\" \"yarn run watch-node\"",
+    "watch-dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \" yarn run watch-ts\" \"yarn run watch-debug\""
+  },
+  "dependencies": {
+    "@types/bunyan": "^1.8.6",
+    "@types/bunyan-format": "^0.2.0",
+    "@types/cors": "^2.8.4",
+    "@types/express": "^4.16.1",
+    "@types/express-graphql": "^0.6.2",
+    "@types/graphql": "^14.0.7",
+    "bunyan": "^1.8.12",
+    "bunyan-format": "^0.2.1",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.1.1"
+  }
+}

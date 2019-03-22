@@ -1,0 +1,12 @@
+<div class='container'>
+    <app-form (searcher)='updateSearch($event)'></app-form>
+    <app-grid 
+        *ngIf='trxSelected && confValid; else pending'
+        [rowData]='rowData'    
+    ></app-grid>
+    <ng-template #pending>
+        <mat-card class='primary'>
+            <h1>Please Select A Transaction</h1>
+        </mat-card>
+    </ng-template>
+</div>
