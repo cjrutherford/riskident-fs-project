@@ -1,48 +1,48 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Transaction } from '../interfaces/transaction';
 
-import { Apollo, Query } from 'apollo-angular';
-import gql from 'graphql-tag'
-import { Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { SelectedTransactionService } from '../selected-transaction.service';
-import{ Transaction} from '../interfaces/transaction';
-
-
-
+import { ConnectionInfoComponent } from '../connection-info/connection-info.component';
 
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.sass']
+  styleUrls: ['./grid.component.sass'],
 })
 export class GridComponent implements OnInit, OnChanges {
-
   columnDefs = [
     { headerName: 'Transaction ID', field: 'id' },
-    { headerName: 'ConnectionInfo', field: 'connectionInfo' },
+    {
+      headerName: 'ConnectionInfo',
+      field: 'connectionInfo',
+      cellRendererFramework: ConnectionInfoComponent,
+    },
     { headerName: 'ConfidenceLevel', field: 'confidence' },
     { headerName: 'Name', field: 'name' },
     { headerName: 'Email', field: 'email' },
     { headerName: 'Phone', field: 'phone' },
-    { headerName: 'Age', field: 'age' }
+    { headerName: 'Age', field: 'age' },
   ];
+
+  gridOptions = {
+    columnDefs: this.columnDefs,
+  };
 
   querySubscription: Subscription;
 
-  @Input() rowData: Array<Transaction> =new Array<Transaction>();
+  @Input() rowData: Array<Transaction> = new Array<Transaction>();
 
-
-
-  ngOnChanges(changes: SimpleChanges){
+  ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
     this.rowData = changes.rowData.currentValue;
   }
-  constructor() { }
+  constructor() {}
 
-
-
-  ngOnInit() {
-    
-  }
-
+  ngOnInit() {}
 }

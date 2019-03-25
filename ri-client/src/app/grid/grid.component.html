@@ -1,36 +1,7 @@
 <ag-grid-angular
   style="width: 90vw; height: 60vh;"
-  class='ag-theme-balham'
-  [rowData]='rowData'
-  [columnDefs]='columnDefs'
+  class="ag-theme-balham"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
 >
-  <ag-grid-column 
-    headerName="Transaction ID" 
-    field='id'
-  ></ag-grid-column>
-  <ag-grid-column 
-    headerName="Connection Info" 
-    field='connectionInfo'
-    [cellRenderer]="connectionInfoRenderer"
-  ></ag-grid-column>
-  <ag-grid-column 
-    headerName="Confidence Level" 
-    field='confidence'
-  ></ag-grid-column>
-  <ag-grid-column 
-    headerName="Name" 
-    field='name'
-  ></ag-grid-column>
-  <ag-grid-column 
-    headerName="Email" 
-    field='email'
-  ></ag-grid-column>
-  <ag-grid-column 
-    headerName="Phone" 
-    field='phone'
-  ></ag-grid-column>
-  <ag-grid-column 
-    headerName="Age" 
-    field='age'
-  ></ag-grid-column>
 </ag-grid-angular>
